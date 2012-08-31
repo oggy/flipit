@@ -1,4 +1,4 @@
-module Flip
+module Flipit
   VERSION = [0, 0, 0]
 
   class << VERSION

@@ -1,15 +1,14 @@
 # -*- encoding: utf-8 -*-
 $:.unshift File.expand_path('lib', File.dirname(__FILE__))
-require 'flip/version'
+require 'flipit/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = 'flip'
-  gem.version       = Flip::VERSION
+  gem.name          = 'flipit'
+  gem.version       = Flipit::VERSION
   gem.authors       = ['George Ogata']
   gem.email         = ['george.ogata@gmail.com']
-  gem.description   = "TODO: Write a gem description"
-  gem.summary       = "TODO: Write a gem summary"
-  gem.homepage      = ''
+  gem.summary       = "Flip tables."
+  gem.homepage      = 'https://github.com/oggy/flipit'
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
