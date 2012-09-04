@@ -1,5 +1,5 @@
 module Flipit
-  VERSION = [0, 0, 0]
+  VERSION = [0, 0, 1]
 
   class << VERSION
     include Comparable
