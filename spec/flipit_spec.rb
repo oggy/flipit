@@ -10,13 +10,13 @@ describe Flipit do
 
   describe "run" do
     it "flips a table without any args" do
-      flipit = Flipit::App.new ['-p']
+      flipit = Flipit::App.new []
       flipit.run
       flipit.result.should == "(╯°□°)╯︵ ┻━┻"
     end
 
     it "flips any text passed in" do
-      flipit = Flipit::App.new ['-p', 'rails can\'t scale']
+      flipit = Flipit::App.new ['rails can\'t scale']
       flipit.run
       flipit.result.should == "(╯°□°)╯︵ ǝlɐɔs ʇ,uɐɔ slı̣ɐɹ"
     end
@@ -25,6 +25,18 @@ describe Flipit do
       flipit = Flipit::App.new ['I hate bacon']
       flipit.run
       pbpaste.should == "(╯°□°)╯︵ uoɔɐq ǝʇɐɥ I"
+    end
+
+    it "added the result to the clipboard" do
+      Open3.should_receive(:popen2).with('pbcopy')
+
+      Flipit::App.new(['This text doesn\'t matter']).run
+    end
+
+    it "prints to STDOUT when '-p' is a param" do
+      STDOUT.should_receive(:puts)
+
+      Flipit::App.new(['-p', 'This text doesn\'t matter']).run
     end
   end
 
