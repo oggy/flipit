@@ -21,12 +21,6 @@ describe Flipit do
       flipit.result.should == "(╯°□°)╯︵ ǝlɐɔs ʇ,uɐɔ slı̣ɐɹ"
     end
 
-    it "flips any text passed in" do
-      flipit = Flipit::App.new ['I hate bacon']
-      flipit.run
-      pbpaste.should == "(╯°□°)╯︵ uoɔɐq ǝʇɐɥ I"
-    end
-
     it "added the result to the clipboard" do
       Open3.should_receive(:popen2).with('pbcopy')
 
@@ -41,7 +35,7 @@ describe Flipit do
   end
 
   describe "private methods" do
-    let(:flipit){Flipit::App.new ['-p']}
+    let(:flipit){Flipit::App.new []}
     it "#table returns the table characters" do
       flipit.send(:table).should == "┻━┻"
     end
