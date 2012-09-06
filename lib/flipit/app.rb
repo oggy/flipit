@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# encoding: UTF-8
 require 'optparse'
 require 'open3'
 
@@ -21,19 +21,19 @@ module Flipit
       parser.parse!(args)
     end
 
-    attr_reader :args
+    attr_reader :args, :result
 
     def run
       if args.empty?
-        flipped = "#{flipper} #{table}"
+        @result = "#{flipper} #{table}"
       elsif
         text = args.join(' ')
-        flipped = "#{flipper} #{flip(text)}"
+        @result = "#{flipper} #{flip(text)}"
       end
       if @print
-        @output.puts flipped
+        @output.puts @result
       else
-        pbcopy(flipped)
+        pbcopy(@result)
       end
       0
     end
@@ -65,12 +65,12 @@ module Flipit
       'd' => 'p',
       'e' => 'ǝ',
       'f' => 'ɟ',
-      'g' => 'b',
+      'g' => 'ƃ',
       'h' => 'ɥ',
       'i' => 'ı̣',
-      'j' => 'ظ',
+      'j' => 'ɾ',
       'k' => 'ʞ',
-      'l' => 'ן',
+      'l' => 'l',
       'm' => 'ɯ',
       'n' => 'u',
       'o' => 'o',
